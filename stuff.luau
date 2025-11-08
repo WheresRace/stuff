@@ -197,7 +197,7 @@ end
 
 -- So I can easily stop the glitching that happens when your carrying too many things at once. Now the objects will only collide with eachother and not the player when i disable the collisions using this function
 function Glove:_disableCollisions(Object: Instance)
-	for _, part in pairs(Object:GetDescendants()) do -- Loop through descendants which is all parts within the part basically
+	for _, part in ipairs(Object:GetDescendants()) do -- Loop through descendants which is all parts within the part basically
 		if part:IsA("BasePart") then -- Check if its a base part
 			part.CollisionGroup = "VomGrabbed" -- And set the collision group to the one i made in studio
 		end
@@ -206,7 +206,7 @@ end
 
 -- Basically same thing as above but I reset it back to the default collision group
 function Glove:_enableCollisions(Object: Instance)
-	for _, part in pairs(Object:GetDescendants()) do
+	for _, part in ipairs(Object:GetDescendants()) do
 		if part:IsA("BasePart") then
 			part.CollisionGroup = "Default"
 		end
